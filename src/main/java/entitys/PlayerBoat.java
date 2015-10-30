@@ -13,7 +13,7 @@ public class PlayerBoat {
 
     private int position_x;
     private int position_y;
-    private int yVelocity = 10; // velocity of boat, default is 0
+    private int yVelocity = 10; // velocity of boat, default is 10
     private int acceleration = 0; // acceleration of boat
     private int distance = 0; // distance of boat
 
