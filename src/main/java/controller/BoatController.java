@@ -15,16 +15,21 @@ public class BoatController {
     public void pressed(KeyEvent e){
             int key = e.getKeyCode();
             if(key == KeyEvent.VK_LEFT){
-                if (position<2)position++;
+                if (position<2){
+                    position++;
+                    chooseImg();
+                }
 
             }if(key == KeyEvent.VK_RIGHT){
-                if (position>-2)position--;
+                if (position>-2){
+                    position--;
+                    chooseImg();
+                }
             }
-        setImg();
         }
 
 
-    private void setImg() {
+    private void chooseImg() {
         if(position == 0){
             playerBoat.setBoatN();
         }if(position == 1){

@@ -8,7 +8,7 @@ import javax.swing.*;
 import java.awt.event.*;
 
 public class MainEngine  implements ActionListener {
-    private Timer mainTimer = new Timer(20,this);
+    private Timer mainTimer = new Timer(50,this);
     private BoatController boatController;
     private PlayerBoat playerBoat;
     private GamePanel gamePanel;
@@ -16,10 +16,12 @@ public class MainEngine  implements ActionListener {
 
     public MainEngine() {
         mainTimer.start();
+
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        playerBoat.move();
         gamePanel.repaint();
     }
 
