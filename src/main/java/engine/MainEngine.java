@@ -31,6 +31,7 @@ public class MainEngine  implements ActionListener {
     public void setGamePanel(GamePanel gamePanel) {
         this.gamePanel = gamePanel;
         this.gamePanel.addKeyListener(new MyKeyAddapter());
+        this.gamePanel.setFocusable(true);
 
 
 
@@ -49,7 +50,7 @@ public class MainEngine  implements ActionListener {
 
         @Override
         public void keyPressed(KeyEvent e) {
-            System.out.println(3);
+            boatController.pressed(e);
         }
 
         @Override

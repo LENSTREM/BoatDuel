@@ -9,6 +9,7 @@ public class PlayerBoat {
     private int position_y;
 
 
+
     public PlayerBoat() {
         this.setBoatN();
     }

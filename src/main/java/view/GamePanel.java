@@ -7,7 +7,7 @@ import entitys.PlayerBoat;
 import javax.swing.*;
 import java.awt.*;
 
-public class GamePanel extends JPanel  {
+public class GamePanel extends JPanel {
 
     private PlayerBoat playerBoat;
     private GameBackground background;
@@ -22,6 +22,7 @@ public class GamePanel extends JPanel  {
 
         this.engine.setPlayerBoat(this.playerBoat);
         this.engine.setGamePanel(this);
+        setFocusable(true);
     }
 
 
@@ -34,4 +35,6 @@ public class GamePanel extends JPanel  {
     public PlayerBoat getPlayerBoat() {
         return playerBoat;
     }
+
+
 }

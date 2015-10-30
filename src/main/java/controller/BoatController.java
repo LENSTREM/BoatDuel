@@ -6,6 +6,7 @@ import java.awt.event.KeyEvent;
 
 public class BoatController {
     private PlayerBoat playerBoat;
+    private int position = 0;
 
     public BoatController(PlayerBoat playerBoat) {
         this.playerBoat = playerBoat;
@@ -14,20 +15,29 @@ public class BoatController {
     public void pressed(KeyEvent e){
             int key = e.getKeyCode();
             if(key == KeyEvent.VK_LEFT){
-                System.out.println(1);
-                playerBoat.setBoatW();
+                if (position<2)position++;
 
             }if(key == KeyEvent.VK_RIGHT){
-            System.out.println(2);
-                playerBoat.setBoatE();
+                if (position>-2)position--;
             }
+        setImg();
         }
 
 
-    private void rotate(){
+    private void setImg() {
+        if(position == 0){
+            playerBoat.setBoatN();
+        }if(position == 1){
+            playerBoat.setBoatNW();
+        }if(position == 2){
+            playerBoat.setBoatW();
+        }if(position == -1){
+            playerBoat.setBoatNE();
+        }if(position == -2){
+            playerBoat.setBoatE();
+        }
 
     }
-
 
 
 }
