@@ -1,6 +1,7 @@
 package view;
 
 import engine.MainEngine;
+import entitys.BoundaryBuoy;
 import entitys.GameBackground;
 import entitys.PlayerBoat;
 
@@ -16,6 +17,7 @@ public class GamePanel extends JPanel {
     private GameBackground background1;
     private GameBackground background2;
     private MainEngine engine;
+	private BoundaryBuoy boundaryBuoy;
 
 
     public GamePanel() {
@@ -29,6 +31,8 @@ public class GamePanel extends JPanel {
         this.engine.setPlayerBoat(this.playerBoat);
         this.engine.setGamePanel(this);
         setFocusable(true);
+
+	    boundaryBuoy = engine.getBoundaryBuoy();
     }
 
 
@@ -36,7 +40,7 @@ public class GamePanel extends JPanel {
     public void paint(Graphics graphics) {
         graphics.drawImage(background1.getBackgroundImg(), playerBoat.getDxGameBackround1(), playerBoat.getDyGameBackround1(), null);
         graphics.drawImage(background2.getBackgroundImg(), playerBoat.getDxGameBackround2(), playerBoat.getDyGameBackround2(), null);
-
+		graphics.drawImage(boundaryBuoy.getBoundaryBuoyImg(),boundaryBuoy.getPosition_x(),boundaryBuoy.getPosition_y(),null);
         graphics.drawImage(playerBoat.getPlayerBoatImg(), X_ABSOLUTE_BOAT_POSITION, Y_ABSOLUTE_BOAT_POSITION, null);
     }
 

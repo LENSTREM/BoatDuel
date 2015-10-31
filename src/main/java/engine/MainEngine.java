@@ -1,6 +1,7 @@
 package engine;
 
 import controller.BoatController;
+import entitys.BoundaryBuoy;
 import entitys.PlayerBoat;
 import view.GamePanel;
 
@@ -12,21 +13,27 @@ public class MainEngine  implements ActionListener {
     private BoatController boatController;
     private PlayerBoat playerBoat;
     private GamePanel gamePanel;
+	private BoundaryBuoy boundaryBuoy;
+
 
 
     public MainEngine() {
         mainTimer.start();
+
+
 
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         playerBoat.move();
+	    boundaryBuoy.move();
         gamePanel.repaint();
     }
 
     public void setPlayerBoat(PlayerBoat playerBoat) {
         this.playerBoat = playerBoat;
+	    boundaryBuoy = new BoundaryBuoy(playerBoat);
         this.boatController =  BoatController.getInstance();
         this.boatController.setPlayerBoat(this.playerBoat);
     }
@@ -44,8 +51,11 @@ public class MainEngine  implements ActionListener {
         return boatController;
     }
 
+	public BoundaryBuoy getBoundaryBuoy() {
+		return boundaryBuoy;
+	}
 
-    private class MyKeyAddapter implements KeyListener {
+	private class MyKeyAddapter implements KeyListener {
         @Override
         public void keyTyped(KeyEvent e) {
 

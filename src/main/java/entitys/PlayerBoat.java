@@ -198,4 +198,13 @@ public class PlayerBoat {
     public int getDxGameBackround2() {
         return dxGameBackround2;
     }
+
+
+	public int getyVelocity() {
+		return yVelocity;
+	}
+
+	public int getxVelocity() {
+		return xVelocity;
+	}
 }
