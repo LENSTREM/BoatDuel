@@ -87,15 +87,7 @@ public class PlayerBoat {
 
 
             break;}
-            case 2:{
 
-                yVelocity = 0;
-                xVelocity = 10;
-
-
-
-
-                break;}
 
         }
 
