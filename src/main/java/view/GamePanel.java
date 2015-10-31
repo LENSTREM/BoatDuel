@@ -30,8 +30,13 @@ public class GamePanel extends JPanel {
 
     @Override
     public void paint(Graphics graphics) {
-        graphics.drawImage(background1.getBackgroundImg(), -400, playerBoat.getDyGameBackround1(), null);
-        graphics.drawImage(background2.getBackgroundImg(), -400, playerBoat.getDyGameBackround2(), null);
+        graphics.drawImage(background1.getBackgroundImg(), playerBoat.getDxGameBackround1(), playerBoat.getDyGameBackround1(), null);
+        graphics.drawImage(background2.getBackgroundImg(), playerBoat.getDxGameBackround2(), playerBoat.getDyGameBackround2(), null);
+
+
+
+
+
         graphics.drawImage(playerBoat.getPlayerBoatImg(), 435, 385, null);
     }
 

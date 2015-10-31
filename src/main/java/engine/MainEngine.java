@@ -27,7 +27,8 @@ public class MainEngine  implements ActionListener {
 
     public void setPlayerBoat(PlayerBoat playerBoat) {
         this.playerBoat = playerBoat;
-        this.boatController = new BoatController(playerBoat);
+        this.boatController =  BoatController.getInstance();
+        this.boatController.setPlayerBoat(this.playerBoat);
     }
 
     public void setGamePanel(GamePanel gamePanel) {

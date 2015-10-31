@@ -10,6 +10,5 @@ public class Main {
         frame.setResizable(false);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        System.out.println(7);
     }
 }

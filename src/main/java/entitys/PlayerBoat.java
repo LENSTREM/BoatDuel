@@ -1,5 +1,7 @@
 package entitys;
 
+import controller.BoatController;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -11,32 +13,62 @@ public class PlayerBoat {
 
     private Image playerBoatImg;
 
-    private int position_x;
-    private int position_y;
-    private int yVelocity = 10; // velocity of boat, default is 10
-    private int acceleration = 0; // acceleration of boat
-    private int distance = 0; // distance of boat
+
+    private int yVelocity ;
+    private int xVelocity ;
+    private int acceleration = 0;
+    private int distance = 0;
 
     private int dyGameBackround1=0;
     private int dyGameBackround2=-700;
+
+    private int dxGameBackround1=-400;
+    private int dxGameBackround2=-400;
+
 
     private int dx = 0;
     private int dy = 0;
 
 
     public void move(){
-        yVelocity +=acceleration;
+/*        yVelocity +=acceleration;
         distance += yVelocity;
 
-        dy += distance;
+        dy += distance;*/
 
-        if (dyGameBackround2 + yVelocity < 0) {
-            dyGameBackround1 += yVelocity;
-            dyGameBackround2 += yVelocity;
-        } else {
-            dyGameBackround1 = 0;
-            dyGameBackround2 = -700;
+        int boatDirection = BoatController.getInstance().getBoatDirection(); // North / west / east of boat..
+
+        switch (boatDirection){
+          case 0:{
+                    yVelocity = 10;
+                    xVelocity = 0;
+                      if (dyGameBackround2 + yVelocity < 0) {
+                          dyGameBackround1 += yVelocity;
+                          dyGameBackround2 += yVelocity;
+                      } else {
+                          dyGameBackround1 = 0;
+                          dyGameBackround2 = -700;
+                      }
+          }
+          case 1:{
+
+
+          }
         }
+
+
+
+        if (dxGameBackround1 - xVelocity >= -800 ) {
+            dxGameBackround1 -= xVelocity;
+            dxGameBackround2 -= xVelocity;
+        } else {
+            dxGameBackround1 = -400;
+            dxGameBackround2 = -400;
+        }
+
+
+
+
 
 
 
@@ -68,22 +100,6 @@ public class PlayerBoat {
 
     public void setPlayerBoatImg(Image playerBoatImg) {
         this.playerBoatImg = playerBoatImg;
-    }
-
-    public int getPosition_x() {
-        return position_x;
-    }
-
-    public void setPosition_x(int position_x) {
-        this.position_x = position_x;
-    }
-
-    public int getPosition_y() {
-        return position_y;
-    }
-
-    public void setPosition_y(int position_y) {
-        this.position_y = position_y;
     }
 
     public int getAcceleration() {
@@ -124,5 +140,13 @@ public class PlayerBoat {
 
     public int getDyGameBackround2() {
         return dyGameBackround2;
+    }
+
+    public int getDxGameBackround1() {
+        return dxGameBackround1;
+    }
+
+    public int getDxGameBackround2() {
+        return dxGameBackround2;
     }
 }
