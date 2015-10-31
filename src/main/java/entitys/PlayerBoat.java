@@ -49,28 +49,55 @@ public class PlayerBoat {
                           dyGameBackround1 = 0;
                           dyGameBackround2 = -700;
                       }
-          }
-          case 1:{
+          break;}
+          case -1:{
+
+              yVelocity = 7;
+              xVelocity = 7;
+              if (dyGameBackround2 + yVelocity < 0 && dxGameBackround1 - xVelocity >= -800 ) {
+                  dyGameBackround1 += yVelocity;
+                  dyGameBackround2 += yVelocity;
+                  dxGameBackround1 -= xVelocity;
+                  dxGameBackround2 -= xVelocity;
+              } else {
+                  dxGameBackround1 = -400;
+                  dxGameBackround2 = -400;
+                  dyGameBackround1 = 0;
+                  dyGameBackround2 = -700;
+              }
+          break;}
+
+            case -2:{
+
+                yVelocity = 0;
+                xVelocity = 10;
+                if (dxGameBackround1 - xVelocity >= -800 ) {
+                    dxGameBackround1 -= xVelocity;
+                    dxGameBackround2 -= xVelocity;
+                } else {
+                    dxGameBackround1 = -400;
+                    dxGameBackround2 = -400;
+                                    }
+            break;}
+            case 1:{
+                yVelocity = 7;
+                xVelocity = 7;
 
 
-          }
+
+
+            break;}
+            case 2:{
+
+                yVelocity = 0;
+                xVelocity = 10;
+
+
+
+
+                break;}
+
         }
-
-
-
-        if (dxGameBackround1 - xVelocity >= -800 ) {
-            dxGameBackround1 -= xVelocity;
-            dxGameBackround2 -= xVelocity;
-        } else {
-            dxGameBackround1 = -400;
-            dxGameBackround2 = -400;
-        }
-
-
-
-
-
-
 
     }
 
