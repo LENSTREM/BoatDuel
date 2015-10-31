@@ -8,7 +8,7 @@ import javax.swing.*;
 import java.awt.event.*;
 
 public class MainEngine  implements ActionListener {
-    private Timer mainTimer = new Timer(50,this);
+    private Timer mainTimer = new Timer(70,this);
     private BoatController boatController;
     private PlayerBoat playerBoat;
     private GamePanel gamePanel;

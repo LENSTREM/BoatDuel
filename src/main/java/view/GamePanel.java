@@ -9,10 +9,14 @@ import java.awt.*;
 
 public class GamePanel extends JPanel {
 
+    final static int X_ABSOLUTE_BOAT_POSITION = 435;
+    final static int Y_ABSOLUTE_BOAT_POSITION = 385;
+
     private PlayerBoat playerBoat;
     private GameBackground background1;
     private GameBackground background2;
     private MainEngine engine;
+
 
     public GamePanel() {
 
@@ -33,16 +37,14 @@ public class GamePanel extends JPanel {
         graphics.drawImage(background1.getBackgroundImg(), playerBoat.getDxGameBackround1(), playerBoat.getDyGameBackround1(), null);
         graphics.drawImage(background2.getBackgroundImg(), playerBoat.getDxGameBackround2(), playerBoat.getDyGameBackround2(), null);
 
-
-
-
-
-        graphics.drawImage(playerBoat.getPlayerBoatImg(), 435, 385, null);
+        graphics.drawImage(playerBoat.getPlayerBoatImg(), X_ABSOLUTE_BOAT_POSITION, Y_ABSOLUTE_BOAT_POSITION, null);
     }
 
     public PlayerBoat getPlayerBoat() {
         return playerBoat;
     }
 
-
+    public static int getxAbsoluteBoatPosition() {
+        return X_ABSOLUTE_BOAT_POSITION;
+    }
 }
