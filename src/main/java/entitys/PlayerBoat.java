@@ -30,67 +30,91 @@ public class PlayerBoat {
     private int dy = 0;
 
 
-    public void move(){
+    public void move() {
 /*        yVelocity +=acceleration;
         distance += yVelocity;
 
         dy += distance;*/
 
-        int boatDirection = BoatController.getInstance().getBoatDirection(); // North / west / east of boat..
+	    int boatDirection = BoatController.getInstance().getBoatDirection(); // North / west / east of boat..
 
-        switch (boatDirection){
-          case 0:{
-                    yVelocity = 10;
-                    xVelocity = 0;
-                      if (dyGameBackround2 + yVelocity < 0) {
-                          dyGameBackround1 += yVelocity;
-                          dyGameBackround2 += yVelocity;
-                      } else {
-                          dyGameBackround1 = 0;
-                          dyGameBackround2 = -700;
-                      }
-          break;}
-          case -1:{
+	    switch (boatDirection) {
+		    case 0: {
+			    yVelocity = 10;
+			    xVelocity = 0;
+			    if (dyGameBackround2 + yVelocity < 0) {
+				    dyGameBackround1 += yVelocity;
+				    dyGameBackround2 += yVelocity;
+			    } else {
+				    dyGameBackround1 = 0;
+				    dyGameBackround2 = -700;
+			    }
+			    break;
+		    }
+		    case -1: {
 
-              yVelocity = 7;
-              xVelocity = 7;
-              if (dyGameBackround2 + yVelocity < 0 && dxGameBackround1 - xVelocity >= -800 ) {
-                  dyGameBackround1 += yVelocity;
-                  dyGameBackround2 += yVelocity;
-                  dxGameBackround1 -= xVelocity;
-                  dxGameBackround2 -= xVelocity;
-              } else {
-                  dxGameBackround1 = -400;
-                  dxGameBackround2 = -400;
-                  dyGameBackround1 = 0;
-                  dyGameBackround2 = -700;
-              }
-          break;}
+			    yVelocity = 7;
+			    xVelocity = 7;
+			    if (dyGameBackround2 + yVelocity < 0 && dxGameBackround1 - xVelocity >= -800) {
+				    dyGameBackround1 += yVelocity;
+				    dyGameBackround2 += yVelocity;
+				    dxGameBackround1 -= xVelocity;
+				    dxGameBackround2 -= xVelocity;
+			    } else {
+				    dxGameBackround1 = -400;
+				    dxGameBackround2 = -400;
+				    dyGameBackround1 = 0;
+				    dyGameBackround2 = -700;
+			    }
+			    break;
+		    }
 
-            case -2:{
+		    case -2: {
 
-                yVelocity = 0;
-                xVelocity = 10;
-                if (dxGameBackround1 - xVelocity >= -800 ) {
-                    dxGameBackround1 -= xVelocity;
-                    dxGameBackround2 -= xVelocity;
-                } else {
-                    dxGameBackround1 = -400;
-                    dxGameBackround2 = -400;
-                                    }
-            break;}
-            case 1:{
-                yVelocity = 7;
-                xVelocity = 7;
+			    yVelocity = 0;
+			    xVelocity = 10;
+			    if (dxGameBackround1 - xVelocity >= -800) {
+				    dxGameBackround1 -= xVelocity;
+				    dxGameBackround2 -= xVelocity;
+			    } else {
+				    dxGameBackround1 = -400;
+				    dxGameBackround2 = -400;
+			    }
+			    break;
+		    }
+		    case 1: {
+			    yVelocity = 7;
+			    xVelocity = 7;
+			    if (dyGameBackround2 + yVelocity < 0 && dxGameBackround1 + xVelocity < 0) {
+				    dyGameBackround1 += yVelocity;
+				    dyGameBackround2 += yVelocity;
+				    dxGameBackround1 += xVelocity;
+				    dxGameBackround2 += xVelocity;
+			    } else {
+				    dxGameBackround1 = -400;
+				    dxGameBackround2 = -400;
+				    dyGameBackround1 = 0;
+				    dyGameBackround2 = -700;
+			    }
 
 
+			    break;
+		    }
+		    case 2: {
+			    yVelocity = 0;
+			    xVelocity = 10;
+			    if (dxGameBackround1 + xVelocity < 0) {
+				    dxGameBackround1 += xVelocity;
+				    dxGameBackround2 += xVelocity;
+			    } else {
+				    dxGameBackround1 = -400;
+				    dxGameBackround2 = -400;
+
+			    }
 
 
-            break;}
-
-
-        }
-
+			break;}
+	    }
     }
 
     public PlayerBoat() {
