@@ -9,11 +9,11 @@ import javax.swing.*;
 import java.awt.event.*;
 
 public class MainEngine  implements ActionListener {
-    private Timer mainTimer = new Timer(70,this);
+    private Timer mainTimer = new Timer(20,this);
     private BoatController boatController;
     private PlayerBoat playerBoat;
     private GamePanel gamePanel;
-	private BoundaryBuoy boundaryBuoy;
+	private BoundaryBuoy boundaryBuoys [];
 
 
 
@@ -27,13 +27,21 @@ public class MainEngine  implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         playerBoat.move();
-	    boundaryBuoy.move();
+	    for(int i=0;i<boundaryBuoys.length;i++){
+		    boundaryBuoys[i].move();
+	    }
+
         gamePanel.repaint();
     }
 
     public void setPlayerBoat(PlayerBoat playerBoat) {
         this.playerBoat = playerBoat;
-	    boundaryBuoy = new BoundaryBuoy(playerBoat);
+	    boundaryBuoys = new BoundaryBuoy[10];
+	    for(int i=0;i<10;i++){
+		    boundaryBuoys[i] = new BoundaryBuoy(playerBoat);
+		    boundaryBuoys[i].setPosition_y((i*72));
+	    }
+
         this.boatController =  BoatController.getInstance();
         this.boatController.setPlayerBoat(this.playerBoat);
     }
@@ -51,8 +59,8 @@ public class MainEngine  implements ActionListener {
         return boatController;
     }
 
-	public BoundaryBuoy getBoundaryBuoy() {
-		return boundaryBuoy;
+	public BoundaryBuoy [] getBoundaryBuoy() {
+		return boundaryBuoys;
 	}
 
 	private class MyKeyAddapter implements KeyListener {

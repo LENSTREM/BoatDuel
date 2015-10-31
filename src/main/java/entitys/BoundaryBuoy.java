@@ -1,5 +1,7 @@
 package entitys;
 
+import controller.BoatController;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -8,11 +10,11 @@ public class BoundaryBuoy  {
 	private PlayerBoat playerBoat;
 
 	private int position_x;
-	private int position_y = 130;
+	private int position_y = 0;
 
 
-/*	private int yVelocity ;
-	private int xVelocity ;*/
+	private int yVelocity ;
+	private int xVelocity ;
 
 	private int currentSpead;
 
@@ -24,8 +26,17 @@ public class BoundaryBuoy  {
 	}
 
 	public void move(){
-		position_y += playerBoat.getyVelocity();
-		position_x += playerBoat.getxVelocity();
+		int boatDirection = BoatController.getInstance().getBoatDirection();
+
+		xVelocity = playerBoat.getxVelocity();
+		yVelocity = playerBoat.getyVelocity();
+
+		if(boatDirection >=0) position_x +=  xVelocity;
+		else  position_x -=  playerBoat.getxVelocity();
+
+		if(position_y > 700) position_y = 0;
+		else position_y +=  yVelocity;
+
 	}
 
 	public Image getBoundaryBuoyImg() {
@@ -38,5 +49,13 @@ public class BoundaryBuoy  {
 
 	public int getPosition_x() {
 		return position_x;
+	}
+
+	public void setPosition_x(int position_x) {
+		this.position_x = position_x;
+	}
+
+	public void setPosition_y(int position_y) {
+		this.position_y = position_y;
 	}
 }

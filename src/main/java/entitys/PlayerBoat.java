@@ -59,8 +59,8 @@ public class PlayerBoat {
               yVelocity = 7;
               xVelocity = 7;
 
-              if(dx>MAX_RIGHT_COORDINATE) xVelocity = 0;
-              if (dyGameBackround2 + yVelocity < 0 && dxGameBackround1 - xVelocity >= -800 ) {
+              //if(dx>MAX_RIGHT_COORDINATE) xVelocity = 0;
+              if (dyGameBackround2 + yVelocity < 0 /*&& dxGameBackround1 - xVelocity >= -800*/ ) {
                   dyGameBackround1 += yVelocity;
                   dyGameBackround2 += yVelocity;
                   dxGameBackround1 -= xVelocity;
@@ -78,7 +78,7 @@ public class PlayerBoat {
                 yVelocity = 0;
                 xVelocity = 10;
                 dx+=xVelocity;
-                if(dx>MAX_RIGHT_COORDINATE) xVelocity = 0;
+                /*if(dx>MAX_RIGHT_COORDINATE) xVelocity = 0*/;
                 if (dxGameBackround1 - xVelocity >= -800 ) {
                     dxGameBackround1 -= xVelocity;
                     dxGameBackround2 -= xVelocity;
@@ -91,8 +91,8 @@ public class PlayerBoat {
             case 1: {
                 yVelocity = 7;
                 xVelocity = 7;
-                if (dx<MAX_LEFT_COORDINATE) xVelocity = 0;
-                if (dyGameBackround2 + yVelocity < 0 && dxGameBackround1 + xVelocity < 0) {
+               /* if (dx<MAX_LEFT_COORDINATE) xVelocity = 0;*/
+                if (dyGameBackround2 + yVelocity < 0/* && dxGameBackround1 + xVelocity < 0*/) {
                     dyGameBackround1 += yVelocity;
                     dyGameBackround2 += yVelocity;
                     dxGameBackround1 += xVelocity;
@@ -110,7 +110,7 @@ public class PlayerBoat {
                 yVelocity = 0;
                 xVelocity = 10;
                 dx -=xVelocity;
-                if (dx<MAX_LEFT_COORDINATE) xVelocity = 0;
+                /*if (dx<MAX_LEFT_COORDINATE) xVelocity = 0;*/
                 if (dxGameBackround1 + xVelocity < 0 ) {
                     dxGameBackround1 += xVelocity;
                     dxGameBackround2 += xVelocity;

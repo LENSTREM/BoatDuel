@@ -17,7 +17,7 @@ public class GamePanel extends JPanel {
     private GameBackground background1;
     private GameBackground background2;
     private MainEngine engine;
-	private BoundaryBuoy boundaryBuoy;
+	private BoundaryBuoy boundaryBuoys[];
 
 
     public GamePanel() {
@@ -32,7 +32,7 @@ public class GamePanel extends JPanel {
         this.engine.setGamePanel(this);
         setFocusable(true);
 
-	    boundaryBuoy = engine.getBoundaryBuoy();
+	    boundaryBuoys = engine.getBoundaryBuoy();
     }
 
 
@@ -40,7 +40,12 @@ public class GamePanel extends JPanel {
     public void paint(Graphics graphics) {
         graphics.drawImage(background1.getBackgroundImg(), playerBoat.getDxGameBackround1(), playerBoat.getDyGameBackround1(), null);
         graphics.drawImage(background2.getBackgroundImg(), playerBoat.getDxGameBackround2(), playerBoat.getDyGameBackround2(), null);
-		graphics.drawImage(boundaryBuoy.getBoundaryBuoyImg(),boundaryBuoy.getPosition_x(),boundaryBuoy.getPosition_y(),null);
+		    for(int i=0;i<boundaryBuoys.length;i++){
+			    graphics.drawImage(boundaryBuoys[i].getBoundaryBuoyImg(),boundaryBuoys[i].getPosition_x(),boundaryBuoys[i].getPosition_y(),null);
+			    graphics.drawImage(boundaryBuoys[i].getBoundaryBuoyImg(),boundaryBuoys[i].getPosition_x()+960,boundaryBuoys[i].getPosition_y(),null);
+		    }
+
+
         graphics.drawImage(playerBoat.getPlayerBoatImg(), X_ABSOLUTE_BOAT_POSITION, Y_ABSOLUTE_BOAT_POSITION, null);
     }
 
